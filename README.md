@@ -4,11 +4,12 @@ A Python program that opens up Bible verses that are asked.
 
 ## Description
 
-This is a simple command-line program that allows you to look up and read Bible verses. The program includes a collection of popular Bible verses from the King James Version (KJV).
+This is a simple command-line program that allows you to look up and read any Bible verse. The program uses the Bible API (bible-api.com) to fetch verses dynamically, supporting multiple translations including King James Version (KJV), NIV, ESV, and more.
 
 ## Requirements
 
-- Python 3.x
+- Python 3.8 or higher (Python 3.6 reached end-of-life in December 2021)
+- Install Python packages: `pip3 install -r requirements.txt`
 
 ## Usage
 
@@ -43,22 +44,27 @@ Enter verse reference: John 3:16
 Enter verse reference: Psalm 23:1
 ```
 
-Type `list` to see all available verses, or `quit`/`exit` to exit the program.
+Type `help` or `list` to see usage examples, or `quit`/`exit` to exit the program.
 
-## Available Verses
+## Supported Features
 
-The program currently includes the following popular verses:
+The program can fetch **any verse from the entire Bible**, including:
 
-- John 3:16
-- Genesis 1:1
-- Psalm 23:1
-- Proverbs 3:5-6
-- Romans 8:28
-- Philippians 4:13
-- Matthew 6:33
-- Jeremiah 29:11
-- Isaiah 41:10
-- 1 Corinthians 13:4-7
+- All Old Testament books (Genesis through Malachi)
+- All New Testament books (Matthew through Revelation)
+- Single verses (e.g., "John 3:16")
+- Verse ranges (e.g., "Psalm 23:1-6", "Matthew 5:3-12")
+- Multiple Bible translations (KJV, NIV, ESV, NASB, NLT, and more)
+
+### Translation Support
+
+Specify a translation by adding it in parentheses:
+```bash
+python3 bible.py "John 3:16 (NIV)"
+python3 bible.py "Genesis 1:1 (ESV)"
+```
+
+Default translation is King James Version (KJV) if not specified.
 
 ## Example Output
 
@@ -85,6 +91,10 @@ chmod +x bible.py
 ./bible.py "John 3:16"
 ```
 
-## Expanding the Database
+## API and Data Source
 
-To add more verses, edit the `BIBLE_DATA` dictionary in the `bible.py` file.
+This program uses the [Bible API](https://bible-api.com) to fetch verses dynamically. The API provides access to the entire Bible in multiple translations. No local database is needed - all verses are fetched in real-time from the API.
+
+## Contributing
+
+Feel free to submit issues or pull requests to improve the program. When contributing, please follow the coding guidelines outlined in `.github/copilot-instructions.md`.
