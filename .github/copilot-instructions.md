@@ -85,7 +85,7 @@ This repository contains a Python-based Bible verse lookup program that uses the
 When adding tests:
 - Test both successful verse lookups and error conditions
 - Mock external API calls to avoid network dependencies
-- Test reference normalization with various input formats
+- Test reference normalization with book name abbreviations (e.g., 'gen' -> 'Genesis')
 - Test both command-line and interactive modes
 - Verify error handling for network failures and invalid references
 
@@ -108,8 +108,8 @@ When adding tests:
 
 - Use minimal external dependencies
 - Current dependencies:
-  - `requests`: For HTTP API calls
-  - `sys`, `re`, `json`: Standard library modules
+  - `requests`: For HTTP API calls (includes JSON parsing via `.json()` method)
+  - `sys`, `re`: Standard library modules
 - When adding new dependencies, justify their necessity and check for security vulnerabilities
 
 ## Compatibility
@@ -130,13 +130,11 @@ When adding tests:
 
 ## Future Enhancements to Consider
 
-When adding new features, consider:
-- Offline caching of frequently accessed verses
-- Support for searching verses by keyword
-- Bookmarking favorite verses
-- Comparison of multiple translations side-by-side
-- Export verses to text files
-- Configuration file for user preferences
+When adding new features, maintain simplicity and consider:
+- Offline caching of frequently accessed verses (if it doesn't add significant complexity)
+- Support for searching verses by keyword (if the API supports it)
+- Simple text export of verses
+Note: Avoid features that would significantly increase complexity or require many new dependencies
 
 ## Common Pitfalls to Avoid
 
