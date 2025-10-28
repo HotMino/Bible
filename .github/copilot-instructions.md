@@ -143,3 +143,32 @@ Note: Avoid features that would significantly increase complexity or require man
 - Don't remove error handling for edge cases
 - Don't change the API endpoint without good reason
 - Don't sacrifice user-friendliness for technical features
+
+## Setup and Build Instructions
+
+### Initial Setup
+1. Ensure Python 3.6+ is installed
+2. Install dependencies: `pip3 install -r requirements.txt`
+3. Make script executable (optional): `chmod +x bible.py`
+
+### Running the Program
+- Command-line mode: `python3 bible.py "John 3:16"`
+- Interactive mode: `python3 bible.py`
+- Help: `python3 bible.py --help`
+
+### Testing
+- No test framework is currently set up
+- When adding tests in the future, use `pytest` as it's a minimal and widely-used testing framework
+- Tests should be placed in a `tests/` directory
+
+## Repository Structure
+
+```
+Bible/
+├── .github/
+│   └── copilot-instructions.md  # This file
+├── .gitignore                   # Python build artifacts
+├── README.md                    # User documentation
+├── requirements.txt             # Python dependencies
+└── bible.py                     # Main program file
+```
