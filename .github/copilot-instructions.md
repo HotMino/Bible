@@ -114,8 +114,9 @@ When adding tests:
 
 ## Compatibility
 
-- Maintain Python 3.x compatibility
-- Test with common Python 3 versions (3.6+)
+- Maintain compatibility with currently supported Python 3 versions (3.8+)
+- Python 3.6 reached end-of-life in December 2021
+- Test with multiple Python 3 versions when possible
 - Ensure cross-platform compatibility (Windows, macOS, Linux)
 - Make the script executable with shebang: `#!/usr/bin/env python3`
 
@@ -147,7 +148,7 @@ Note: Avoid features that would significantly increase complexity or require man
 ## Setup and Build Instructions
 
 ### Initial Setup
-1. Ensure Python 3.6+ is installed
+1. Ensure Python 3.8+ is installed (Python 3.6 reached end-of-life in December 2021)
 2. Install dependencies: `pip3 install -r requirements.txt`
 3. Make script executable (optional): `chmod +x bible.py`
 

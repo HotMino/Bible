@@ -8,9 +8,8 @@ This is a simple command-line program that allows you to look up and read any Bi
 
 ## Requirements
 
-- Python 3.6 or higher
-- Python packages (install with `pip3 install -r requirements.txt`):
-  - `requests` - for fetching Bible verses from the API
+- Python 3.8 or higher (Python 3.6 reached end-of-life in December 2021)
+- Install Python packages: `pip3 install -r requirements.txt`
 
 ## Usage
 
