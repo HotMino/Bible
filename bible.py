@@ -8,7 +8,6 @@ Uses the Bible API to fetch verses dynamically.
 import sys
 import re
 import requests
-import json
 
 # Bible API configuration
 BIBLE_API_BASE = "https://bible-api.com"
@@ -111,7 +110,7 @@ def fetch_verse(reference, translation=DEFAULT_TRANSLATION):
             'error': f'Network error: Unable to fetch verse. Please check your internet connection.',
             'reference': normalized_ref
         }
-    except json.JSONDecodeError:
+    except requests.exceptions.JSONDecodeError:
         return {
             'error': 'Invalid response from Bible API. The verse reference may be invalid.',
             'reference': normalized_ref
