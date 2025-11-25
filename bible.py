@@ -82,8 +82,28 @@ def fetch_verse(reference, translation=DEFAULT_TRANSLATION):
         
         # Make the API request
         response = requests.get(url, timeout=10)
-        response.raise_for_status()
-        
+
+        if not response.ok:
+            try:
+                error_payload = response.json()
+            except ValueError:
+                error_payload = {}
+
+            message = error_payload.get(
+                "error",
+                error_payload.get(
+                    "message",
+                    "Bible API returned an unexpected error while looking up the verse.",
+                ),
+            )
+
+            if not message and response.reason:
+                message = f"{response.status_code} {response.reason}"
+            elif not message:
+                message = f"Bible API returned status code {response.status_code}."
+
+            return {"error": message, "reference": normalized_ref}
+
         # Parse the JSON response
         data = response.json()
         
@@ -110,7 +130,7 @@ def fetch_verse(reference, translation=DEFAULT_TRANSLATION):
             'error': f'Network error: Unable to fetch verse. Please check your internet connection.',
             'reference': normalized_ref
         }
-    except requests.exceptions.JSONDecodeError:
+    except (ValueError, requests.exceptions.JSONDecodeError):
         return {
             'error': 'Invalid response from Bible API. The verse reference may be invalid.',
             'reference': normalized_ref
